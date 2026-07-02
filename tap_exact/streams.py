@@ -2856,4 +2856,8 @@ class WarehouseTransfersStream(ExactStream):
 
     @property
     def select(self):
-        return "TransferID,Created,Creator,CreatorFullName,Description,Division,EntryDate,Modified,Modifier,ModifierFullName,PlannedDeliveryDate,PlannedReceiptDate,Remarks,Source,Status,TransferDate,TransferNumber,WarehouseFrom,WarehouseFromCode,WarehouseFromDescription,WarehouseTo,WarehouseToCode,WarehouseToDescription,WarehouseTransferLines&$expand=WarehouseTransferLines"
+        return "TransferID,Created,Creator,CreatorFullName,Description,Division,EntryDate,Modified,Modifier,ModifierFullName,PlannedDeliveryDate,PlannedReceiptDate,Remarks,Source,Status,TransferDate,TransferNumber,WarehouseFrom,WarehouseFromCode,WarehouseFromDescription,WarehouseTo,WarehouseToCode,WarehouseToDescription,WarehouseTransferLines"
+
+    @property
+    def expand(self):
+        return "WarehouseTransferLines"
