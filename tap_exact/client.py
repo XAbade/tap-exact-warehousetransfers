@@ -249,7 +249,7 @@ class ExactStream(RESTStream):
         use_price_lists = (
             self.config.get("use_price_lists", True)
         )
-        use_price_lists = (
+        use_warehouse_transfers = (
             self.config.get("use_warehouse_transfers", True)
         )
 
