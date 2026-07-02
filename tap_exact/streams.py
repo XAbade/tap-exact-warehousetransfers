@@ -2861,3 +2861,42 @@ class WarehouseTransfersStream(ExactStream):
     @property
     def expand(self):
         return "WarehouseTransferLines"
+
+
+class WarehouseTransferLinesStream(ExactStream):
+    name = "warehouse_transfer_lines"
+    primary_keys = ["ID"]
+    path = "/inventory/WarehouseTransferLines"
+    replication_key = "Modified"
+
+    schema = th.PropertiesList(
+        th.Property("ID", th.StringType),
+        th.Property("Created", th.DateTimeType),
+        th.Property("Creator", th.StringType),
+        th.Property("CreatorFullName", th.StringType),
+        th.Property("Description", th.StringType),
+        th.Property("Division", th.StringType),
+        th.Property("Item", th.StringType),
+        th.Property("ItemCode", th.StringType),
+        th.Property("ItemDescription", th.StringType),
+        th.Property("LineNumber", th.StringType),
+        th.Property("Modified", th.DateTimeType),
+        th.Property("Modifier", th.StringType),
+        th.Property("ModifierFullName", th.StringType),
+        th.Property("Quantity", th.StringType),
+        th.Property("StorageLocationFrom", th.StringType),
+        th.Property("StorageLocationFromCode", th.StringType),
+        th.Property("StorageLocationFromDescription", th.StringType),
+        th.Property("StorageLocationFromLocationSequence", th.StringType),
+        th.Property("StorageLocationTo", th.StringType),
+        th.Property("StorageLocationToCode", th.StringType),
+        th.Property("StorageLocationToDescription", th.StringType),
+        th.Property("StorageLocationToLocationSequence", th.StringType),
+        th.Property("TransferID", th.StringType),
+        th.Property("UnitCode", th.StringType),
+        th.Property("UnitDescription", th.StringType),
+    ).to_dict()
+
+    @property
+    def select(self):
+        return "ID,Created,Creator,CreatorFullName,Description,Division,Item,ItemCode,ItemDescription,LineNumber,Modified,Modifier,ModifierFullName,Quantity,StorageLocationFrom,StorageLocationFromCode,StorageLocationFromDescription,StorageLocationFromLocationSequence,StorageLocationTo,StorageLocationToCode,StorageLocationToDescription,StorageLocationToLocationSequence,TransferID,UnitCode,UnitDescription"
