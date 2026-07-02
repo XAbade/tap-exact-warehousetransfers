@@ -2823,7 +2823,7 @@ class BankEntryLinesStream(ExactStream):
 
 class WarehouseTransfersStream(ExactStream):
     name = "warehouse_transfers"
-    primary_keys = ["ID"]
+    primary_keys = ["TransferID"]
     path = "/inventory/WarehouseTransfers"
     replication_key = "Modified"
 
